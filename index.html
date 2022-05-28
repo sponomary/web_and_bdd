@@ -70,14 +70,16 @@
 
         <h2 class="big-heading">Présentation</h2>
         <Le>Ce site contient l'ensemble des résultats obtenus lors la réalisation du projet du cours "Web et bases de données" dispensé par Sarra El Hayari dans le cadre du master TAL 2 (Ingenirie Multilingue) à
-          l'INALCO. Le projet a pour le but de créer un site Internet, avec interaction dynamique avec une base de données. L’idée est d'utiliser tout ce nous avons vu en cours : HTML5, CSS, SQL et PHP. Avant de commencer les tâches, nous avons défini le sujet suivant :
-        <ul class="fa-ul">
-          <li><span class="fa-li"><i class="fas fa-check-square"></i></span>Consultation / recherche via SELECT. L'utilisateur aura l'accès aux équivalents du terme sur les autres langues, ainsi que des exemples d'utilisation. Vu que, par exemple, les noms scientifiques des plantes sont en latin et seront peut-être les mêmes dans 3 langues, je vais utiliser les noms courants</li>
-          <li><span class="fa-li"><i class="fas fa-check-square"></i></span>Création de ses propres listes des termes préférés via CREATE/UPDATE pour ensuite les consulter, réviser avec la possibilité de supprimer si besoin (DELETE).</li>
-          <li><span class="fa-li"><i class="fas fa-check-square"></i></span>Les quiz / mini jeux terminologies basés sur les listes personnalisées.</li>
-        </ul>
-        </p>
-        <p>Je vais, du coup, ajouter la possibilité de créer un compte et s'y connecter peut-être (si j'arrive).</p>
+          l'INALCO. Le projet a pour le but de créer un site Internet, avec interaction dynamique avec une base de données. L’idée est d'utiliser tout ce nous avons vu en cours : HTML5, CSS, SQL et PHP. Avant de commencer les tâches, nous avons
+          défini le sujet suivant :
+          <ul class="fa-ul">
+            <li><span class="fa-li"><i class="fas fa-check-square"></i></span>Consultation / recherche via SELECT. L'utilisateur aura l'accès aux équivalents du terme sur les autres langues, ainsi que des exemples d'utilisation. Vu que, par exemple,
+              les noms scientifiques des plantes sont en latin et seront peut-être les mêmes dans 3 langues, je vais utiliser les noms courants</li>
+            <li><span class="fa-li"><i class="fas fa-check-square"></i></span>Création de ses propres listes des termes préférés via CREATE/UPDATE pour ensuite les consulter, réviser avec la possibilité de supprimer si besoin (DELETE).</li>
+            <li><span class="fa-li"><i class="fas fa-check-square"></i></span>Les quiz / mini jeux terminologies basés sur les listes personnalisées.</li>
+          </ul>
+          </p>
+          <p>Je vais, du coup, ajouter la possibilité de créer un compte et s'y connecter peut-être (si j'arrive).</p>
       </div>
   </section>
 
@@ -92,7 +94,7 @@
 
       <br />
 
-      <form class="" action="traitement.php" method="get">
+      <form class="" action="rechercher.php" method="get">
         <!-- éléments du formulaire -->
         <fieldset>
           <legend>Rechercher une plante</legend>
@@ -105,43 +107,44 @@
           </div>
 
           <div class="mb-3">
-            <label for="family" class="form-label">Par famille :</label><br />
-            <select>
-              <option value="1">Araceae</option>
-              <option value="2">Marantaceae</option>
-              <option value="3">Asparagaceae</option>
-              <option value="4">Arecaceae</option>
-              <option value="5">Begoniaceae</option>
-              <option value="6">Urticaceae</option>
-              <option value="7">Asclepiadaceae</option>
-              <option value="8">Commelinaceae</option>
-              <option value="9">Piperaceae</option>
-              <option value="10">Acanthaceae</option>
-              <option value="11">Mimosaceae</option>
-              <option value="12">Asclepiadaceae</option>
-              <option value="13">Gesneriaceae</option>
-              <option value="14">Orchidaceae</option>
-              <option value="15">Autre</option>
-            </select>
+            <div class="col">
+              <label for="family" class="form-label">Par famille :</label><br />
+              <select>
+                <option value="1">Araceae</option>
+                <option value="2">Marantaceae</option>
+                <option value="3">Asparagaceae</option>
+                <option value="4">Arecaceae</option>
+                <option value="5">Begoniaceae</option>
+                <option value="6">Urticaceae</option>
+                <option value="7">Asclepiadaceae</option>
+                <option value="8">Commelinaceae</option>
+                <option value="9">Piperaceae</option>
+                <option value="10">Acanthaceae</option>
+                <option value="11">Mimosaceae</option>
+                <option value="12">Asclepiadaceae</option>
+                <option value="13">Gesneriaceae</option>
+                <option value="14">Orchidaceae</option>
+                <option value="15">Autre</option>
+              </select>
+            </div>
+
+            <div class="col">
+              <label for="name" class="form-label">Par nom :</label>
+              <input id="name" name="plant_name" type="text" class="form-control" placeholder="Quelques exemples" list="plants">
+
+              <datalist id="plants">
+                <option value="Pilea">
+                <option value="Monstera">
+                <option value="Calathea">
+                <option value="Alocasia">
+                <option value="Caladium">
+                <option value="Aglaonema">
+              </datalist>
+
+            </div>
           </div>
         </fieldset>
 
-        <fieldset>
-
-          <div class="mb-3">
-            <label for="name" class="form-label">Par nom :</label>
-            <input id="name" name="plant_name" type="text" class="form-control" placeholder="Quelques exemples" list="plants">
-
-            <datalist id="plants">
-              <option value="Pilea">
-              <option value="Monstera">
-              <option value="Calathea">
-              <option value="Alocasia">
-              <option value="Caladium">
-            </datalist>
-          </div>
-
-        </fieldset>
         <button type="submit" name="ok" value="select_by_scientific_name" class="btn btn-info">Rechercher par nom</button>
         <button type="submit" name="ok" value="select_by_family" class="btn btn-info">Rechercher par famille</button>
         <button type="submit" name="ok" value="select_all" class="btn btn-info">Rechercher tout</button>
@@ -164,7 +167,7 @@
 
       <form class="" action="traitement.php" method="get">
         <!-- éléments du formulaire -->
-        <fieldset>
+        <fieldset>s
           <legend>Informations personnelles</legend>
           <div class="row g-3">
             <div class="col">

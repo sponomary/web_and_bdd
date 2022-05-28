@@ -1,7 +1,7 @@
 <?php
 
-// affiche un en-tête html généré en PHP
-function header($title, $charset, $stylesheet) {
+// Affiche le <head> de HTML
+function entete($title, $charset, $stylesheet) {
     echo "<!DOCTYPE html>";
     echo "<html lang=\"fr\" dir=\"ltr\">";
     echo "<head>";
@@ -31,14 +31,16 @@ function header($title, $charset, $stylesheet) {
     echo "<a id=\"button\"></a>";
 
     echo "<!-- Favicon -->";
-    echo "<link href=<h1 class=\"big-heading\">Testing SELECT</h1> -->\"favicon.ico\" rel=\"icon\" type=\"image/x-icon\" />";
+    echo "<link href=\"favicon.ico\" rel=\"icon\" type=\"image/x-icon\" />";
 
     echo "</head>";
 
     echo "<body class=\"colored-section\">";
   }
 
-//génère le logo, le bandeau et le menu de chaque page
+
+
+// Génère le logo, le bandeau et le menu de chaque page
 function debut($titre) {
   echo "<div class=\"container-fluid\">";
   echo "<h1 class=\"big-heading\">".$titre."</h1>";
@@ -52,6 +54,20 @@ function tab_result($values) {
     echo "<td>".$value."</td>";
   }
   echo "</tr>";
+}
+
+// Génère une liste à puces
+function liste_a_puces($values) {
+  echo "<ul>";
+  foreach ($values as $value){
+    echo "<li>".$value."</li>";
+  }
+  echo "</ul>";
+}
+
+// Génère une page de retour au formulaire (en cas de problème notamment)
+function retour($page) {
+  echo "<p><a href=\"./".$page."\">Retour à la page précédente</a></p>";
 }
   
 ?>
