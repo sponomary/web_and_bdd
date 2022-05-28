@@ -17,7 +17,7 @@ if ($_GET["ok"] == "select_by_scientific_name") {
   // Définition et envoi d’une requête avec paramètres
   $nom = $_GET["plant_name"];
 
-  $requete = $sql->prepare("SELECT * FROM Plants WHERE scientific_name LIKE :nom");
+  $requete = $sql->prepare("SELECT * FROM Plants WHERE LOWER(scientific_name) LIKE LOWER(:nom)");
 
   // Définition et protection des paramètres
   $requete->bindParam(':nom', $nom);
@@ -66,7 +66,7 @@ elseif ($_GET["ok"] == "select_by_family") {
   $resultat = $requete->execute();
 }
 
-elseif ($_GET["ok"] == "select_all") {
+else {
   $requete = $sql->prepare("SELECT * FROM Plants");
 
   // Définition et protection des paramètres
@@ -84,16 +84,7 @@ elseif ($_GET["ok"] == "select_all") {
   echo "Nombre de résultats de la rêquete : ".$nb_resultats;
 }
 
-elseif ($_GET["ok"] == "insert") {
-  echo "TEST INSERT";
-}
-
-else {
-  echo "SOSOSOSOSO";
-}
-
 retour("index.html");
-fin();
 
 ?>
 
