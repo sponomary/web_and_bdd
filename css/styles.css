@@ -1,0 +1,235 @@
+html, body {
+  font-family: "Ubuntu", sans-serif;
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Montserrat-Bold", sans-serif;
+}
+
+p {
+  color: #8f8f8f;
+}
+
+table
+{
+    border-collapse: collapse;
+}
+td, th /* Mettre une bordure sur les td ET les th */
+{
+    border: 1px solid black;
+}
+
+em {
+  color: #03506f;
+  font-weight: bold;
+}
+
+/* Headings */
+.big-heading {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 2rem;
+  line-height: 1.5;
+  font-weight: 900;
+}
+
+/* Containers */
+
+.container-fluid{
+  padding: 7% 15%;
+}
+
+.spaced {
+  margin-bottom: 50px;
+}
+
+
+/* Sections */
+
+.colored-section {
+  background-color: #A6CF98;
+  color: #146356;
+}
+
+.white-section {
+  background-color: #F2FFE9;
+  color: #146356;
+}
+
+/* Navigation Bar */
+.navbar {
+  padding: 0 0 4.5rem;
+}
+
+.navbar-brand {
+  font-family: "Ubuntu";
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.nav-item {
+  padding: 0 18px;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+  font-family: "Montserrat-Light", sans-serif;
+}
+
+/* Buttons */
+.download-button {
+  margin: 5% 3% 5% 0;
+}
+
+/* Download Tables */
+.download-table a {
+  color: #146356;
+}
+
+/* Présentation Section */
+.presentation p {
+  color: #fff;
+}
+
+.text-light {
+  font-weight: bold;
+}
+
+.presentation-card {
+  width: 18rem;
+  height: 18rem;
+}
+
+.bao-column {
+  padding: 10% 10%;
+}
+
+.bao-section {
+  text-align: center;
+}
+
+.bao-section h3 {
+  color: #146356;
+}
+
+#title { /*OK*/
+  background-color: #146356;
+  color: #fff;
+  text-align: left;
+}
+
+#title .container-fluid { /*OK*/
+  padding: 3% 15% 7%;
+}
+
+/* BaO 1 Section */
+.code-snippet {
+  background-color: #F7F7F7;
+  display: inline-block;
+  margin-left: 2px;
+  width: 800px;
+  vertical-align: top;
+}
+
+.rubrique {
+  color: #8f8f8f;
+}
+
+/* BaO2 Section */
+#bao2 {
+  background-color: #a3ddcb;
+}
+
+#bao2 p {
+  color: #555;
+}
+
+/* BaO3 Section */
+.function-list {
+  color: #8f8f8f;
+}
+
+/* Conclusion Section */
+
+/* Carousel Section */
+.plant-image {
+  width: 30%;
+  border-radius: 100%;
+  margin: 20px;
+}
+
+#tools {
+  position: relative;
+}
+
+.feature-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.feature-box {
+  padding: 4.5%;
+}
+
+.icon {
+  color: #146356;
+  margin-bottom: 1rem;
+}
+
+.icon:hover {
+  color: #00adb5;
+}
+
+/* Footer Section */
+#footer {
+  text-align: center;
+}
+
+.social-icon {
+  margin: 20px 10px;
+}
+
+/* Button to top */
+#button {
+  display: inline-block;
+  background-color: #146356;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color .3s,
+    opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+#button::after {
+  content: "\f077";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
+}
+#button:hover {
+  cursor: pointer;
+  background-color: grey;
+}
+#button:active {
+  background-color: #555;
+}
+#button.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 1028px) {
+  #title {
+    text-align: center;
+  }
+
+}
