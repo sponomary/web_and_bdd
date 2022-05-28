@@ -67,7 +67,7 @@ function liste_a_puces($values) {
 
 // Génère une page de retour au formulaire (en cas de problème notamment)
 function retour($page) {
-  echo "<p><a href=\"./".$page."\"><button type=\"button\" class=\"btn btn-light\">Retour à la page précédente</button></a></p>";
+  echo "<p><a href=\"./".$page."\"><button type=\"button\" class=\"btn btn-light spaced\">Retour à la page principale</button></a></p>";
 }
   
 ?>

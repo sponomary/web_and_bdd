@@ -136,10 +136,17 @@
 
                 </fieldset>
                 <div class="row g-3">
-                    <div class="col-md-6"><button type="submit" name="ok" value="select_by_scientific_name"
-                            class="btn btn-success">Rechercher par nom scientifique</button></div>
-                    <div class="col-md-6"><button type="submit" name="ok" value="select_by_family"
-                            class="btn btn-success">Rechercher par famille</button></div>
+                    <div class="col-md-6">
+                        <button type="submit" name="ok" value="select_by_family" class="btn btn-success">Rechercher par
+                            famille
+                        </button>
+                    </div>
+
+                    <div class="col-md-6">
+                        <button type="submit" name="ok" value="select_by_scientific_name"
+                            class="btn btn-success">Rechercher par nom
+                        </button>
+                    </div>
                 </div>
             </form>
 
@@ -453,18 +460,22 @@
     <!-- Pied de page -->
 
     <footer class="white-section" id="footer">
-    <div class="container-fluid">
-      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Chats doux</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Chats adorables</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Chats coquins</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Chats actifs</a></li>
-      </ul>
-      <a class="text-dark" href="https://www.linkedin.com/in/alexandra-ponomareva-22228710b/" target="_blank"><i class="social-icon fab fa-linkedin"></i></a>
-      <a class="text-dark" href="mailto:alex.ponomaryova@gmail.com" target="_blank"><i class="social-icon fas fa-envelope"></i></a>
-      <p>© <script>document.write(new Date().getFullYear())</script> Alexandra Ponomareva 🌱</p>
-    </div>
-  </footer>
+        <div class="container-fluid">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Chats doux</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Chats adorables</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Chats coquins</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Chats actifs</a></li>
+            </ul>
+            <a class="text-dark" href="https://www.linkedin.com/in/alexandra-ponomareva-22228710b/" target="_blank"><i
+                    class="social-icon fab fa-linkedin"></i></a>
+            <a class="text-dark" href="mailto:alex.ponomaryova@gmail.com" target="_blank"><i
+                    class="social-icon fas fa-envelope"></i></a>
+            <p>© <script>
+                document.write(new Date().getFullYear())
+                </script> Alexandra Ponomareva 🌱</p>
+        </div>
+    </footer>
 </body>
 
 </html>
