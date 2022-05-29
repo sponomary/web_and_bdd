@@ -34,15 +34,18 @@
             } else {
               echo"<legend>Il y a ".$nb." résultats pour ce nom</legend>";
 
-              echo '<center><table>
+              echo '<center><table class="table table-striped">
+                  <thead>
                     <tr>
-                    <th>scientific_name</th>
-                    <th>family</th>
-                    <th>name england</th>
-                    <th>name french</th>
-                    <th>name russia</th>
-                    <th>image</th>
-                    </tr>';
+                      <th scope="col>Nom scientifique</th>
+                      <th scope="col>Family</th>
+                      <th scope="col>Nom commun EN</th>
+                      <th scope="col>Nom commun FR</th>
+                      <th scope="col>Nom commun RU</th>
+                      <th scope="col>Image</th>
+                    </tr>
+                  </thead>
+                  <tbody>';
 
               foreach ($lignes as $ligne) {
                 echo "<tr>";
@@ -54,8 +57,7 @@
                 echo '<td><img src="images/'.$ligne['image'].'"></td>';
                 echo "</tr>";
               }
-
-              echo "</table></center>";
+              echo "</tbody></table></center>";
             }
           }
           elseif ($_GET["ok"] == "select_by_family") {
@@ -67,22 +69,21 @@
             $requete->execute();
 
             $lignes = $requete->fetchAll();
-            //print_r($lignes);
             $nb = count($lignes);
             
             if ($nb == 0) {
               echo"<legend>Pas de résultat pour cette famille :-(</legend>";
             } else {
               echo"<legend>Il y a ".$nb." résultats pour cette famille</legend>";
-              echo '<center><table>
+              echo '<center><table class="table table-striped">
                     <tr>
-                    <th>scientific_name</th>
-                    <th>family</th>
-                    <th>name england</th>
-                    <th>name french</th>
-                    <th>name russia</th>
-                    <th>image</th>
-                    </tr>';
+                    <th scope="col>Nom scientifique</th>
+                    <th scope="col>Family</th>
+                    <th scope="col>Nom commun EN</th>
+                    <th scope="col>Nom commun FR</th>
+                    <th scope="col>Nom commun RU</th>
+                    <th scope="col>Image</th>
+                    </tr></thead><tbody>';
 
               foreach ($lignes as $ligne) {
                 echo "<tr>";
@@ -91,11 +92,11 @@
                 echo "<td>".$ligne['common_name_en']."</td>";
                 echo "<td>".$ligne['common_name_fr']."</td>";
                 echo "<td>".$ligne['common_name_ru']."</td>";
-                echo '<td><img class="plant-image-search" src="images/'.$ligne['image'].'"></td>';
+                echo '<td><img class="plant-image-search img-fluid img-thumbnail mx-auto d-block" src="images/'.$ligne['image'].'"></td>';
                 echo "</tr>";
               }
 
-              echo "</table></center>";
+              echo "</tbody></table></center>";
             }
 
           } else {

@@ -132,8 +132,9 @@ em {
 }
 
 .plant-image-search {
-  max-width : 100%;
-  height : auto;
+  max-width: 100%;
+  height: auto;
+  margin: 10px;
 }
 
 .rubrique {

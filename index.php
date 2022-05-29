@@ -277,7 +277,9 @@
     </textarea>
                     </div>
                 </fieldset>
-                <button type="submit" class="btn btn-info">Confirmer</button>
+                <form action="">
+                    <button type="submit" class="btn btn-info">Confirmer</button>
+                </form>
             </form>
 
 
@@ -288,8 +290,19 @@
     <!-- Fonctionnalité 3 -->
     <section class="white-section">
         <div class="container-fluid">
-            <p>Creation de ses propres listes des termes préférés via CREATE/UPDATE pour ensuite les consulter, reviser
-                avec la possibilité de supprimer si plus besoin (DELETE)</p>
+            <header class="bao-head">
+                <div>
+                    <h3>Mini Quizz</h3>
+                </div>
+            </header>
+            <br />
+            <p>Dans cette partie vous pouvez vérifier vos connaissances en matière de noms de plantes vertes d'intérieur
+                en trois langues.</p>
+            <form action="quiz.php" method="get">
+                
+                <button type="submit" name="start_game" value="go" class="btn btn-success">Commencer le
+                    jeu</button>
+            </form>
         </div>
     </section>
 
@@ -302,42 +315,7 @@
 
             <div class="presentation">
                 <h2 class="big-heading">Conclusion</h2>
-                <p>Dans la première partie de ce projet, nous avons construit une boîte à outils qui génère un corpus à
-                    partir des fils RSS dans deux formats : TXT et XML. Nous avons aussi testé deux méthodes
-                    d'extraction de données textuelles différentes,
-                    donc nous pouvons constater que la version pure Perl est meilleure. Non seulement la version du
-                    script avec les expressions régulières nous semble plus claire intuitivement, elle est aussi la plus
-                    rapide. En plus, pour pouvoir utiliser le
-                    module XML::RSS il faut étudier la documentation qui n'est pas toujours facile à prendre en main.
-                </p>
-                <p>Dans la deuxième partie du projet nous avons repris le script de la première boîte à outils (celui
-                    avec la méthode pure Perl puisque elle est plus rapide) et nous l'avons completé de telle façon
-                    qu'il puisse étiqueter les données
-                    textuelles, une fois extraites. Nous avons testé 2 étiqueteurs différents : TreeTagger, l'étiqueteur
-                    en POS ; UDPipe, l'étiqueteur syntaxique. Le traitement s'est avéré un peu long, en moyenne 4
-                    minutes (sur ma machine, bien entendu). Comme
-                    résultat, nous avons obtenu des fichiers étiquetés par TreeTagger en format XML et des fichiers
-                    étiquetés par UDPipe en format CoNLL. Pour ensuite extraire les relations syntaxiques des sorties
-                    UDPipe avec certains outils, nous avons
-                    converti les fichiers CoNLL en format XML.</p>
-                <p>Dans la troisième partie du projet, on a expérimenté divers outils d'extraction des informations à
-                    partir des données étiquetées dans la boîte à outil précedente afin de pouvoir étudier les
-                    terminologies du corpus et les analyser. On a
-                    constaté que les 4 méthodes font bien le travail, la seule limitation ici, c'est la qualité de
-                    données d'entrée, donc des fichiers étiquetés. On a obtenu quand même quelques résultats éronnés,
-                    mais c'est la responsabilité des outils
-                    d'étiquetage. Enfin, on a conclu que les sujets les plus discutés en année 2020, en tout cas dans le
-                    journal Le Monde, sont la crise sanitaire suite du Covid-19 et les élections présidentielles aux
-                    États-Unis. On a egalement constaté,
-                    qu'entre rubriques « À la une » et « International » il y a beaucoup de choses en commun, tandis que
-                    la rubrique « Culture » reste un peu à part. </p>
-                <p>Ce que j’ai trouvé particulièrement amusant, c'est de créer ce site. Pendant les travaux sur le
-                    premier Projet Encadré, j’ai eu l’opportunité de me familiariser avec les bases du web : HTML et CSS
-                    (la structure et le style de web-pages).
-                    Ce semestre je voulais améliorer le site du premier semestre et essayer de voir les bases de
-                    JavaScript afin de rendre mon site un peu plus dynamique. Ce plan s’est avéré trop ambitieux avec un
-                    programme aussi intense, mais j’ai quand même
-                    réussi à apprendre un peu plus. Notamment, j’ai découvert divers ressources très utiles :
+                <p>Blablabla :
                 <ul>
                     <li><a class="text-light" href="https://getbootstrap.com/" target="_blank">Framework Bootstrap</a>,
                         une collection d'outils utiles à la création du design de sites (j’ai utilisé v4.6)
@@ -354,7 +332,7 @@
 
     </section>
 
-    <!-- Tools Section -->
+    <!-- Photo Section -->
 
     <section class="white-section" id="tools">
 
@@ -448,7 +426,7 @@
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
-                <p>https://unsplash.com/@feeypflanzen</p>
+                <p>Source des photos : <a href="https://unsplash.com/@feeypflanzen">Severin Candrian (feey.ch)</a></p>
             </div>
 
         </div>
@@ -461,10 +439,9 @@
     <footer class="white-section" id="footer">
         <div class="container-fluid">
             <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Chats doux</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Chats adorables</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Chats coquins</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Chats actifs</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Plantes rendent heureux</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Plantes purifient l'air</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Plantes donnent du style</a></li>
             </ul>
             <a class="text-dark" href="https://www.linkedin.com/in/alexandra-ponomareva-22228710b/" target="_blank"><i
                     class="social-icon fab fa-linkedin"></i></a>
