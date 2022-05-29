@@ -112,17 +112,17 @@ em {
   color: #146356;
 }
 
-#title { /*OK*/
+#title { 
   background-color: #146356;
   color: #fff;
   text-align: left;
 }
 
-#title .container-fluid { /*OK*/
+#title .container-fluid {
   padding: 3% 15% 7%;
 }
 
-/* BaO 1 Section */
+/* Function 1 Section */
 .code-snippet {
   background-color: #F7F7F7;
   display: inline-block;
@@ -131,11 +131,16 @@ em {
   vertical-align: top;
 }
 
+.plant-image-search {
+  max-width : 100%;
+  height : auto;
+}
+
 .rubrique {
   color: #8f8f8f;
 }
 
-/* BaO2 Section */
+/* Function 2 Section */
 #bao2 {
   background-color: #a3ddcb;
 }
@@ -144,7 +149,7 @@ em {
   color: #555;
 }
 
-/* BaO3 Section */
+/* Function 3 Section */
 .function-list {
   color: #8f8f8f;
 }

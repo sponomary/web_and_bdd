@@ -24,7 +24,6 @@
     <a id="button"></a>
     <!-- Favicon -->
     <link href="favicon.ico" rel="icon" type="image/x-icon" />
-
     <script>
     $(function() {
         $("#DivContent").load("nav_bar.html");

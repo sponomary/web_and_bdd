@@ -1,12 +1,12 @@
 <body>
     <section class="colored-section" id="title">
-    <div class="container-fluid ">
-    <div id="DivContent"></div>
+        <div class="container-fluid ">
+            <div id="DivContent"></div>
     </section>
 
     <section class="colored-section" id="bao1">
-  
-      <?php
+
+        <?php
           require_once("config.php");
           require_once("functions.php");
 
@@ -91,7 +91,7 @@
                 echo "<td>".$ligne['common_name_en']."</td>";
                 echo "<td>".$ligne['common_name_fr']."</td>";
                 echo "<td>".$ligne['common_name_ru']."</td>";
-                echo '<td><img src="images/'.$ligne['image'].'"></td>';
+                echo '<td><img class="plant-image-search" src="images/'.$ligne['image'].'"></td>';
                 echo "</tr>";
               }
 
@@ -102,18 +102,11 @@
             echo"<legend>marche pas</legend>";
           }
 
-
           retour("index.php");
       ?>
-          
 
-              
-
-        
-      
-
-      </div>
+        </div>
     </section>
-  </body>
+</body>
 
 </html>

@@ -33,6 +33,12 @@ function entete($title, $charset, $stylesheet) {
     echo "<!-- Favicon -->";
     echo "<link href=\"favicon.ico\" rel=\"icon\" type=\"image/x-icon\" />";
 
+    echo "<script>";
+    echo "$(function() {";
+    echo "$(\"#DivContent\").load(\"nav_bar.html\");";
+    echo "});";
+    echo "</script>";
+
     echo "</head>";
 
     echo "<body class=\"colored-section\">";
