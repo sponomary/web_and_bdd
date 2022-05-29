@@ -27,7 +27,7 @@ em, code, .accent {
 /* Containers */
 
 .container-fluid{
-  padding: 5% 7%;
+  padding: 7% 10%;
 }
 
 .spaced {
@@ -87,11 +87,6 @@ em, code, .accent {
   width: 18rem;
   height: 18rem;
 }
-
-.bao-column {
-  padding: 10% 10%;
-}
-
 .bao-section {
   text-align: center;
 }
@@ -161,10 +156,6 @@ em, code, .accent {
   font-weight: 700;
 }
 
-.feature-box {
-  padding: 4.5%;
-}
-
 .icon {
   color: #146356;
   margin-bottom: 1rem;
@@ -227,8 +218,6 @@ em, code, .accent {
   }
 }
 
-
 .radio-left {
   text-align: left;
-  display:inline;
 }

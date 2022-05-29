@@ -62,7 +62,7 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
       <form method="POST" action="" enctype="multipart/form-data">
         <!-- éléments du formulaire -->
         <fieldset>
-          <legend>Informations</legend>
+          <h5 class="accent">Informations</h5>
           <div class="row g-3">
 
             <div class="col">
@@ -125,7 +125,7 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
           <br />
         </fieldset>
         <fieldset>
-          <legend>Photo de la plante</legend>
+          <h5 class="accent">Photo de la plante</h5>
           <div class="row g-3">
             <div class="col">
               <label for="file">Fichier :</label>
@@ -138,7 +138,7 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
         </fieldset>
         <br />
         <fieldset>
-          <legend>Note</legend>
+          <h5 class="accent">Note</h5>
           <div class="mb-3">
             <textarea id="note" name="note" class="form-control" value="<?php echo $note; ?>" placeholder="Dites-nous ce que vous en pensez !"><?php echo $note; ?></textarea>
           </div>
@@ -155,9 +155,9 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
         $requete->execute(['param_id' => $param_id]);
 
         if($requete){
-          echo "La suppression s'est bien déroulée"; 
+          echo "<h5>La suppression s'est bien déroulée<h5>"; 
         }else{
-          echo "Erreur lors de l'a supression"; 
+          echo "<h5>Erreur lors de l'a supression<h5>"; 
         }
 
       }?>
@@ -165,7 +165,6 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
 
     </div>
   </section>
-
-  </body>
-
-</html>
+  <?php
+  pied_de_page();
+  ?>

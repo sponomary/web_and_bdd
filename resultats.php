@@ -9,6 +9,6 @@
     }
     echo '<form action="quiz.php" method="get">';
 
-    echo '<button type="submit" name="start_game" value="go" class="btn btn-success">Continuer le jeu</button>';
+    echo '<button type="submit" name="start_game" value="go" class="btn btn-light">Continuer le jeu</button>';
     echo '</form>';
 ?>

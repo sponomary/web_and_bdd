@@ -55,25 +55,27 @@
                         plantes vertes d'intérieur</strong>. Voici les 3 fonctionnalités que nous proposons dans cette
                     application :
                 <ul class="fa-ul">
-                    <li><span class="accent fa-li"><i class="fas fa-check-square"></i></span>Recherche dans la base
+                    <li><span class="accent fa-li"><i class="fas fa-leaf"></i></span>Recherche dans la base
                         terminologique via
                         <code>SELECT</code>. L'utilisateur a l'accès aux termes scientifiques (noms scientifiques des
                         plantes) et leurs équivalents en language courante en EN, FR et RU.
                     </li>
-                    <li><span class="accent fa-li"><i class="fas fa-check-square"></i></span>Création de nouvelles
+                    <li><span class="accent fa-li"><i class="fas fa-leaf"></i></span>Création de nouvelles
                         entrées ou
                         modification des entrées existantes dans la base de données via
                         <code>CREATE</code>/<code>UPDATE</code> pour ensuite les consulter. Suppression des termes est
                         également disponible via (<code>DELETE</code>).
                     </li>
-                    <li><span class="accent fa-li"><i class="fas fa-check-square"></i></span>Mini quiz pour réviser /
+                    <li><span class="accent fa-li"><i class="fas fa-leaf"></i></span>Mini quiz pour réviser /
                         s'entraîner sur la terminologie.</li>
                 </ul>
                 </p>
-                <p>La base de données proposée a été créée manuellement. Il y a deux tableaux : <code>Plants</code> and <code>Families</code>. Le
+                <p>La base de données proposée a été créée manuellement. Il y a deux tableaux : <code>Plants</code> and
+                    <code>Families</code>. Le
                     tableau contient le nombre des plantes vertes pour lequel nous avons renseigné le nom scientifique
                     de l'espèce, ainsi que ses noms courants en trois langues, la famille (qui est la clé étrangère qui
-                    sert à lier ce tableau au tableau <code>Families</code>), l'image et le champ pour prendre les notes.
+                    sert à lier ce tableau au tableau <code>Families</code>), l'image et le champ pour prendre les
+                    notes.
                 </p>
             </div>
     </section>
@@ -198,8 +200,8 @@
             foreach ($lignes as $ligne) {
                 echo "<tr>";
                 echo "<td>";
-                  echo '<a href="CRUD/update.php?id='. $ligne['plant_id'] .'"><button class="spaced btn btn-warning">Modifier</button></a>';
-                  echo '<a href="CRUD/delete.php?id='. $ligne['plant_id'] .'"><button class="spaced btn btn-warning">Supprimer</button></a>';
+                  echo '<div><a href="CRUD/update.php?id='. $ligne['plant_id'] .'"><button class="spaced btn btn-warning">Modifier</button></a></div>';
+                  echo '<div><a href="CRUD/delete.php?id='. $ligne['plant_id'] .'"><button class="spaced btn btn-danger">Supprimer</button></a></div>';
                 echo "</td>";
                 echo "<td>".$ligne['scientific_name']."</td>";
                 echo "<td>".$ligne['family_name']."</td>";
@@ -245,8 +247,8 @@
             foreach ($lignes as $ligne) {
               echo "<tr>";
               echo "<td>";
-                echo '<a href="CRUD/update.php?id='. $ligne['plant_id'] .'" class="btn btn-warning">Modifier</a>';
-                echo '<a href="CRUD/delete.php?id='. $ligne['plant_id'] .'" class="btn btn-danger">Supprimer</a>';
+              echo '<div><a href="CRUD/update.php?id='. $ligne['plant_id'] .'"><button class="spaced btn btn-warning">Modifier</button></a></div>';
+              echo '<div><a href="CRUD/delete.php?id='. $ligne['plant_id'] .'"><button class="spaced btn btn-danger">Supprimer</button></a></div>';
               echo "</td>";
               echo "<td>".$ligne['scientific_name']."</td>";
               echo "<td>".$ligne['family_name']."</td>";

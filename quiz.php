@@ -10,7 +10,6 @@
     <section class="colored-section" id="bao1">
 
         <?php
-
         
           require_once("config.php");
           require_once("functions.php");
@@ -81,6 +80,7 @@
 
         </div>
     </section>
-</body>
-
-</html>
+    <!-- Pied de page -->
+    <?php 
+    pied_de_page();
+    ?>
