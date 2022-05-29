@@ -67,8 +67,8 @@
             </div>
     </section>
 
-    <!-- Fonctionnalité 1 -->
-    <section class="white-section" id="func1">
+    <!-- Fonctionnalité 1 & 2 -->
+    <section class="white-section" id="bao1">
         <div class="container-fluid">
             <header class="bao-head">
                 <div>
@@ -77,7 +77,7 @@
             </header>
             <br />
 
-            <form class="" action="traitement.php" method="get">
+            <form class="" action="" method="POST">
                 <!-- éléments du formulaire -->
                 <fieldset class="spaced">
 
@@ -136,159 +136,129 @@
                 </fieldset>
                 <div class="row g-3">
                     <div class="col-md-6">
-                        <button type="submit" name="ok" value="select_by_family" class="btn btn-success">Rechercher par
-                            famille
-                        </button>
+                    <button type="submit" name="select_by_family" class="btn btn-success">Rechercher par
+                            famille</button>
                     </div>
 
                     <div class="col-md-6">
-                        <button type="submit" name="ok" value="select_by_scientific_name"
-                            class="btn btn-success">Rechercher par nom
-                        </button>
+                            <button type="submit" name="select_by_scientific_name" class="btn btn-success">Rechercher par
+                            name</button>
                     </div>
                 </div>
             </form>
 
-        </div>
-    </section>
+            <?php 
+        require_once("config.php");
 
-    <!-- Fonctionnalité 2 -->
-    <section class="colored-section">
-        <div class="container-fluid">
-            <header class="bao-head">
-                <div>
-                    <h3>Creation de ses propres listes des termes préférés via CREATE/UPDATE pour ensuite les consulter,
-                        reviser avec la possibilité de supprimer si plus besoin (DELETE)</h3>
-                </div>
-            </header>
-            <p>Ceci est un tesst</p>
+        if(isset($_POST['select_by_scientific_name']))
+        {
+          $nom = $_POST["plant_name"];
+          $param_nom= '%'.$nom.'%';
+          $requete = $sql->prepare("SELECT * FROM Plants WHERE 
+            LOWER(scientific_name) LIKE LOWER(:param_nom) OR 
+            LOWER(common_name_en) LIKE LOWER(:param_nom) OR 
+            LOWER(common_name_fr) LIKE LOWER(:param_nom) OR 
+            LOWER(common_name_ru) LIKE LOWER(:param_nom)");
+          $requete->bindValue('param_nom', $param_nom);
 
+          $requete->execute();
 
-            <form class="" action="traitement.php" method="get">
-                <!-- éléments du formulaire -->
-                <fieldset>
-                    <legend>Informations personnelles</legend>
-                    <div class="row g-3">
-                        <div class="col">
-                            <label for="civ_emprunteur" class="form-label">Civilité :</label><br />
-                            <input id="mme" type="radio" class="form-check-input" name="civi" value="Madame" /> Madame
-                            <input id="mr" type="radio" class="form-check-input" name="civi" value="Monsieur"
-                                checked="checked" /> Monsieur
-                            <input id="n/r" type="radio" class="form-check-input" name="civi" value="Non renseigné" />
-                            Non renseigné
-                        </div>
-                        <div class="col">
-                            <label for="nom_emprunteur" class="form-label">Emprunteur :</label><br />
-                            <input id="nom_emprunteur" name="nom_prenom" type="text" class="form-control" maxlength="40"
-                                placeholder="Indiquez votre nom et prénom" required />
-                        </div>
-                        <div class="col">
-                            <label for="num_emprunteur" class="form-label">Numéro d'adhérent (7 chiffres)
-                                :</label><br />
-                            <input id="num_emprunteur" name="num_adhesion" type="text" class="form-control"
-                                pattern="[0-9]{7}" placeholder="Indiquez votre numéro d'adhesion" required />
-                        </div>
-                    </div>
-                    <br />
-                    <div class="row g-3">
-                        <div class="col">
-                            <label for="email_utilisateur" class="form-label">Email :</label><br />
-                            <input id="emailHelp" name="email" type="email" aria-describedby="emailHelp"
-                                class="form-control" placeholder="name@example.com" required />
-                            <div id="emailHelp" class="form-text">Nous n'allons pas partager vos données personnelles.
-                            </div>
-                        </div>
-                        <div class="col">
-                            <label for="nom_utilisateur" class="form-label">Téléphone :</label><br />
-                            <input id="tel_emprunteur" name="telephone" type="tel" class="form-control"
-                                pattern="(07|06)[0-9]{7}" placeholder="Indiquez votre numéro de téléphone" required />
-                        </div>
-                    </div>
-                </fieldset>
-                <br />
-                <fieldset>
-                    <legend>Informations sur l'emprunt</legend>
-                    <div class="mb-3">
-                        <label for="type_emprunt" class="form-label">Type d'emprunt :</label><br />
-                        <select>
-                            <option value="1">Livre</option>
-                            <option value="2">Journal, revue</option>
-                            <option value="3">Publication</option>
-                            <option value="4">Autre</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="nom_utilisateur" class="form-label">Motivation d'emprunt :</label><br />
-                        <input type="checkbox" class="form-check-input" name="motivation[]" value="aide scolaire"
-                            id="aide_scolaire" /> Aide scolaire
-                        <input type="checkbox" class="form-check-input" name="motivation[]" value="recherches"
-                            id="recherches" /> Recherches
-                        <input type="checkbox" class="form-check-input" name="motivation[]" value="divertissement"
-                            id="divertissement" /> Divertissement
-                    </div>
-                    <div class="mb-3">
-                        <label for="type_emprunt" class="form-label">Auteur :</label><br />
-                        <input type="text" class="form-control" placeholder="Quelques exemples" list="auteurs">
-                        <datalist id="auteurs">
-                            <option value="Victor Hugo">
-                            <option value="Jules Verne">
-                            <option value="Émile Zola">
-                            <option value="J.K. Rowling">
-                            <option value="Fiodor Dostoïevski">
-                            <option value="Mathieu Valette">
-                        </datalist>
-                    </div>
-                    <div class="mb-3">
-                        <label for="nom_emprunt" class="form-label">Nom d'emprunt (optionnel) :</label><br />
-                        <input id="nom" name="nom_emprunt" type="text" class="form-control" maxlength="50"
-                            placeholder="Par ex., Approche textuelle pourle traitement automatique du discours évaluatif" />
-                    </div>
-                    <div class="row g-3">
-                        <div class="col">
-                            <label for="isbn_emprunt" class="form-label">Code ISBN :</label><br />
-                            <input id="isbn" name="isbn" type="text" class="form-control"
-                                pattern="[0-9]{1}-[0-9]{4}-[0-9]{4}-[0-9]{1}" placeholder="Par ex., 2-7654-1005-4" />
-                        </div>
-                        <div class="col">
-                            <label for="nbr_exemp" class="form-label">Nombre d'exemplaires (5 max.):</label><br />
-                            <input id="num_emprunteur" name="num_adhesion" type="number" class="form-control"
-                                pattern="[1-5]{1}" placeholder="Par ex. 1" required />
-                        </div>
-                    </div>
-                    <br />
-                    <div class="row g-3">
-                        <div class="col">
-                            <label for="date_emprunt" class="form-label">Date prêt :</label><br />
-                            <input type="date" class="form-control" />
-                        </div>
-                        <div class="col">
-                            <label for="dae_rendu" class="form-label">A rendre le :</label><br />
-                            <input type="date" class="form-control" />
-                        </div>
-                    </div>
-                </fieldset>
-                <br />
-                <fieldset>
-                    <legend>Autre</legend>
-                    <div class="mb-3">
-                        <label for="misc" class="form-label">Commentaires, remarques : </label><br />
-                        <textarea class="form-control">
-    Dites-nous ce que vous en pensez !
-    </textarea>
-                    </div>
-                </fieldset>
-                <form action="">
-                    <button type="submit" class="btn btn-info">Confirmer</button>
-                </form>
-            </form>
+          $lignes = $requete->fetchAll();
+          $nb = count($lignes);
+          
+          if ($nb == 0) {
+            echo"<legend>Pas de résultat pour ce nom 😔</legend>";
+          } else {
+            echo"<legend>Il y a ".$nb." résultats pour ce nom</legend>";
 
+            echo '<table class="table table-striped">
+                    <thead>
+                        <tr>
+                        <th scope="col">Action</th>
+                        <th scope="col">Nom scientifique</th>
+                        <th scope="col">Family</th>
+                        <th scope="col">Nom commun EN</th>
+                        <th scope="col">Nom commun FR</th>
+                        <th scope="col">Nom commun RU</th>
+                        <th scope="col">Image</th>
+                        </tr>
+                    </thead>
+                    <tbody>';
+
+            foreach ($lignes as $ligne) {
+                echo "<tr>";
+                echo "<td>";
+                  echo '<a href="CRUD/update.php?id='. $ligne['plant_id'] .'" class="btn btn-warning">Modifier</a>';
+                  echo '<a href="CRUD/delete.php?id='. $ligne['plant_id'] .'" class="btn btn-danger">Supprimer</a>';
+                echo "</td>";
+                echo "<td>".$ligne['scientific_name']."</td>";
+                echo "<td>".$ligne['family']."</td>";
+                echo "<td>".$ligne['common_name_en']."</td>";
+                echo "<td>".$ligne['common_name_fr']."</td>";
+                echo "<td>".$ligne['common_name_ru']."</td>";
+                echo '<td><img class="plant-image-search img-fluid img-thumbnail mx-auto d-block" src="images/'.$ligne['photo'].'"></td>';
+                echo "</tr>";
+          }
+
+          echo "</tbody></table>";
+          }
+        }elseif (isset($_POST['select_by_family'])) {
+          $param_family = $_POST["plant_family"];
+          $requete = $sql->prepare("SELECT * FROM Plants WHERE 
+          LOWER(family) LIKE LOWER(:param_family)");
+          $requete->bindParam('param_family', $param_family);
+
+          $requete->execute();
+
+          $lignes = $requete->fetchAll();
+          //print_r($lignes);
+          $nb = count($lignes);
+          
+          if ($nb == 0) {
+            echo"<legend>Pas de résultat pour cette famille 😔</legend>";
+          } else {
+            echo"<legend>Il y a ".$nb." résultats pour cette famille</legend>";
+            echo '<table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Action</th>
+                            <th scope="col">Nom scientifique</th>
+                            <th scope="col">Family</th>
+                            <th scope="col">Nom commun EN</th>
+                            <th scope="col">Nom commun FR</th>
+                            <th scope="col">Nom commun RU</th>
+                            <th scope="col">Image</th>
+                        </tr>
+                    </thead>
+                    <tbody>';
+
+            foreach ($lignes as $ligne) {
+              echo "<tr>";
+              echo "<td>";
+                echo '<a href="CRUD/update.php?id='. $ligne['plant_id'] .'" class="btn btn-warning">Modifier</a>';
+                echo '<a href="CRUD/delete.php?id='. $ligne['plant_id'] .'" class="btn btn-danger">Supprimer</a>';
+              echo "</td>";
+              echo "<td>".$ligne['scientific_name']."</td>";
+              echo "<td>".$ligne['family']."</td>";
+              echo "<td>".$ligne['common_name_en']."</td>";
+              echo "<td>".$ligne['common_name_fr']."</td>";
+              echo "<td>".$ligne['common_name_ru']."</td>";
+              echo '<td><img class="plant-image-search img-fluid img-thumbnail mx-auto d-block" src="images/'.$ligne['photo'].'"></td>';
+              echo "</tr>";
+            }
+
+            echo "</tbody></table>";
+          }
+        }
+    ?>
 
 
         </div>
     </section>
+
 
     <!-- Fonctionnalité 3 -->
-    <section class="white-section">
+    <section class="colored-section">
         <div class="container-fluid">
             <header class="bao-head">
                 <div>
@@ -299,7 +269,7 @@
             <p>Dans cette partie vous pouvez vérifier vos connaissances en matière de noms de plantes vertes d'intérieur
                 en trois langues.</p>
             <form action="quiz.php" method="get">
-                
+
                 <button type="submit" name="start_game" value="go" class="btn btn-success">Commencer le
                     jeu</button>
             </form>
@@ -309,7 +279,7 @@
 
     <!-- Conclusion Section -->
 
-    <section class="colored-section" id="conclusion">
+    <section class="white-section" id="conclusion">
 
         <div class="container-fluid">
 
@@ -334,7 +304,7 @@
 
     <!-- Photo Section -->
 
-    <section class="white-section" id="tools">
+    <section class="colored-section" id="tools">
 
         <div class="container-fluid">
 

@@ -76,6 +76,7 @@
             } else {
               echo"<legend>Il y a ".$nb." résultats pour cette famille</legend>";
               echo '<center><table class="table table-striped">
+              <thead>
                     <tr>
                     <th scope="col>Nom scientifique</th>
                     <th scope="col>Family</th>

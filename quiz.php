@@ -13,24 +13,32 @@
           entete("Quiz", "utf-8", "css/styles.css");
           debut("Quiz");
 
+          echo "VERSION 4";
+          echo "<br />";
+
           # Vérifier le nombre d'entrées dans le tableau
-          $requete = $sql->prepare("SELECT COUNT(*) FROM Plants");
-          $max_num = $requete->execute();
-          echo "max_num: ".$max_num."<br>";
+          $requete = $sql->prepare("SELECT COUNT(*) AS max_num FROM Plants");
+          $requete->execute();
+          $ligne = $requete->fetch();
+          $max_num = $ligne['max_num'];
+          echo $max_num;
+          echo "<br />";
 
           # Utiliser le nombre maximal d'entrées pour générer le nombre aléatoire
-          $hasard = rand(0, $max_num)."<br>";
+          $hasard = rand(0, $max_num);
           echo $hasard;
+          echo "<br />";
 
           if ($_GET["start_game"] == "go") {
 
             // Saisir un nom commun en français au hasard parmi ceux existant dans la BDD
-            $requete = $sql->prepare("SELECT common_name_fr FROM Plants WHERE plant_index LIKE $hasard");
-            $source = $requete->execute();
+            $requete = $sql->prepare("SELECT common_name_fr FROM Plants WHERE plant_id = :param_id");
+            $requete->execute(['param_id' => $hasard]);
+            $source = $requete->fetch();
 
-            echo $source; // terme dont il faut trouver l'equivalent
+            echo $source['common_name_fr']; // terme dont il faut trouver l'equivalent
 
-            echo "<legend>Q : Trouvez l'equivalent du terme ".$source." en anglais : </legend>";
+            echo "<legend>Q : Trouvez l'equivalent du terme ".$source['common_name_fr']." en anglais : </legend>";
         }  
         else {
           echo "Tant pis pour vous.";
