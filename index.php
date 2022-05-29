@@ -33,7 +33,7 @@
 
 <body>
     <section class="colored-section" id="title">
-        <div class="container-fluid">
+        <div class="container-fluid conclusion">
 
             <!-- Nav Bar -->
             <div id="DivContent"></div>
@@ -69,13 +69,6 @@
                     <li><span class="accent fa-li"><i class="fas fa-leaf"></i></span>Mini quiz pour réviser /
                         s'entraîner sur la terminologie.</li>
                 </ul>
-                </p>
-                <p>La base de données proposée a été créée manuellement. Il y a deux tableaux : <code>Plants</code> and
-                    <code>Families</code>. Le
-                    tableau contient le nombre des plantes vertes pour lequel nous avons renseigné le nom scientifique
-                    de l'espèce, ainsi que ses noms courants en trois langues, la famille (qui est la clé étrangère qui
-                    sert à lier ce tableau au tableau <code>Families</code>), l'image et le champ pour prendre les
-                    notes.
                 </p>
             </div>
     </section>
@@ -291,23 +284,44 @@
 
     <!-- Conclusion Section -->
 
-    <section class="white-section" id="conclusion">
+    <section class="white-section white-font" id="title">
 
         <div class="container-fluid">
 
-            <div class="presentation">
-                <h2 class="big-heading">Conclusion</h2>
-                <p>Blablabla :
-                <ul>
-                    <li><a class="text-light" href="https://getbootstrap.com/" target="_blank">Framework Bootstrap</a>,
-                        une collection d'outils utiles à la création du design de sites (j’ai utilisé v4.6)
-                    <li><a class="text-light" href="https://fontawesome.com/" target="_blank">Font Awesome</a>, une
-                        collection d'icônes</li>
-                    <li><a class="text-light" href="https://fonts.google.com/" target="_blank">Google Fonts</a>, une
-                        collection gratuite de polices d'écritures</li>
-                    <li><a class="text-light" href="https://highlightjs.org/" target="_blank">Highlight.js</a>, un
-                        surligneur de syntaxe écrit en JavaScript</li>
-                    </p>
+            <div>
+                <h2 class="big-heading" id="conclusion">Conclusion</h2>
+
+                <p>Pour résumer, nous avons construit ce site à l'aide de <a class="accent"
+                        href="https://www.php.net/manual/fr/index.php">PHP</a> et des requêtes GET et POST pour
+                    récupérer les données issues des ces formulaires.
+                    Les données proviennent d'une base de données SQL créés avec <a class="accent"
+                        href="http://localhost:8888/phpMyAdmin5/">phpMyAdmin</a>.</p>
+                <p>La base de données proposée a été créée manuellement. Il y a deux tableaux : <code>Plants</code> and
+                    <code>Families</code>. Le
+                    tableau contient le nombre des plantes vertes pour lequel nous avons renseigné le nom scientifique
+                    de l'espèce, ainsi que ses noms courants en trois langues, la famille (qui est la clé étrangère qui
+                    sert à lier ce tableau au tableau <code>Families</code>), l'image et le champ pour prendre les
+                    notes.
+                </p>
+                <p>L'interrogation de la base de données s'effectue grâche à quatre opérations de base CRUD.</p>
+                <p>Nous avons rencontré un problème pour la validation du formulaire lors du développement du Quiz. En
+                    effet, avec la technologie HTML + PHP, il n'est pas possible de valider un formulaire sans recharger
+                    entièrement la page ce qui posait problème car cela affichait une autre question et d'autres
+                    réponses. Nous souhaitaions garder à l'écran la question posée, les choix possibles, la réponse
+                    saisie
+                    par l'utilisateur mais aussi afficher le résultat. Pour cela, nous avons utilisé du Javascript et
+                    Jquery
+                    pour récupérer les valeurs saisies dans le formulaire (lors du clic sur le bouton mais sans
+                    rechargement de la page) et la fonction <code>load()</code> afin de mettre à jour seulement une
+                    partie de l'écran
+                    (balise <code>div</code>) pour l'affichage du résultat.
+                </p>
+                <p>Enfin, nous avons utilisé le framework <a class="accent"
+                        href="https://getbootstrap.com/">Bootstrap</a> pour
+                    rendre le site fluide, responsive et plutôt agréable à utiliser. Sur la page principale se trouve le
+                    bouton qui permet de remonter dans la page si scrollé trop bas - cette fonctionalité dinamique
+                    utilise du JavaScript.</p>
+                </p>
             </div>
 
         </div>
