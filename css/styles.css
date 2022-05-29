@@ -11,17 +11,8 @@ p {
   color: #8f8f8f;
 }
 
-table
-{
-    border-collapse: collapse;
-}
-td, th /* Mettre une bordure sur les td ET les th */
-{
-    border: 1px solid black;
-}
-
-em {
-  color: #03506f;
+em, code, .accent {
+  color: #DB6B97;
   font-weight: bold;
 }
 
@@ -36,7 +27,7 @@ em {
 /* Containers */
 
 .container-fluid{
-  padding: 7% 15%;
+  padding: 7% 10%;
 }
 
 .spaced {
@@ -77,9 +68,6 @@ em {
 }
 
 /* Buttons */
-.download-button {
-  margin: 5% 3% 5% 0;
-}
 
 /* Download Tables */
 .download-table a {
@@ -183,7 +171,7 @@ em {
 }
 
 .icon:hover {
-  color: #00adb5;
+  color: #a3ddcb;
 }
 
 /* Footer Section */

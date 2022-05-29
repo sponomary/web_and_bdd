@@ -52,23 +52,25 @@ function debut($titre) {
   echo "<h1 class=\"big-heading\">".$titre."</h1>";
 }
 
-// Génère un tableau d'affichage des résultats
-function tab_result($values) {
-  echo "<tr>";
-  foreach ($values as $value)
-  {
-    echo "<td>".$value."</td>";
-  }
-  echo "</tr>";
-}
-
-// Génère une liste à puces
-function liste_a_puces($values) {
-  echo "<ul>";
-  foreach ($values as $value){
-    echo "<li>".$value."</li>";
-  }
-  echo "</ul>";
+function pied_de_page() {
+  echo '<footer class="white-section" id="footer">
+  <div class="container-fluid">
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Plantes rendent heureux</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Plantes purifient l\'air</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Plantes donnent du style</a></li>
+      </ul>
+      <a class="text-dark" href="https://www.linkedin.com/in/alexandra-ponomareva-22228710b/" target="_blank"><i
+              class="social-icon fab fa-linkedin"></i></a>
+      <a class="text-dark" href="mailto:alex.ponomaryova@gmail.com" target="_blank"><i
+              class="social-icon fas fa-envelope"></i></a>
+      <p>© <script>
+          document.write(new Date().getFullYear())
+          </script> Alexandra Ponomareva 🌱</p>
+  </div>
+  </footer>
+  </body>
+  </html>';
 }
 
 // Génère une page de retour au formulaire (en cas de problème notamment)

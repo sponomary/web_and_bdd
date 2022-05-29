@@ -21,7 +21,7 @@
     <!-- JQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="js/to-top.js"></script>
-    <a id="button"></a>
+    <a class="" id="button"></a>
     <!-- Favicon -->
     <link href="favicon.ico" rel="icon" type="image/x-icon" />
     <script>
@@ -43,26 +43,34 @@
 
                 <h2 class="big-heading">Présentation</h2>
                 <p>Ce site contient l'ensemble des résultats obtenus lors la réalisation du projet du cours "Web et
-                    bases de données" dispensé par Sarra El Hayari dans le cadre du master TAL 2 (Ingenirie Multilingue)
-                    à
-                    l'INALCO. Le projet a pour le but de créer un site Internet, avec interaction dynamique avec une
-                    base de données. L’idée est d'utiliser tout ce nous avons vu en cours : HTML5, CSS, SQL et PHP.
-                    Avant de commencer les tâches, nous avons
-                    défini le sujet suivant :
+                    bases de données" dispensé par Sarra El Ayari dans le cadre du master TAL 2 (Ingénierie Multilingue)
+                    à l'INALCO. Le projet a pour le but de créer un site Internet, avec interaction dynamique avec une
+                    base de données. L’idée est d'utiliser les technologies qui font partie de ce cours :
+                    <em>HTML5</em>, <em>CSS</em>, <em>SQL</em> et <em>PHP</em>.
+                </p>
+
+                <p>Avant de commencer la tâche, nous avons défini le sujet suivant : <strong>créations d'une base terminologique
+                    multilingue pour les amoureux des
+                    plantes vertes d'intérieur</strong>. Voici les 3 fonctionnalités que nous proposons dans cette application :
                 <ul class="fa-ul">
-                    <li><span class="fa-li"><i class="fas fa-check-square"></i></span>Consultation / recherche via
-                        SELECT. L'utilisateur aura l'accès aux équivalents du terme sur les autres langues, ainsi que
-                        des exemples d'utilisation. Vu que, par exemple,
-                        les noms scientifiques des plantes sont en latin et seront peut-être les mêmes dans 3 langues,
-                        je vais utiliser les noms courants</li>
-                    <li><span class="fa-li"><i class="fas fa-check-square"></i></span>Création de ses propres listes des
-                        termes préférés via CREATE/UPDATE pour ensuite les consulter, réviser avec la possibilité de
-                        supprimer si besoin (DELETE).</li>
-                    <li><span class="fa-li"><i class="fas fa-check-square"></i></span>Les quiz / mini jeux terminologies
-                        basés sur les listes personnalisées.</li>
+                    <li><span class="accent fa-li"><i class="fas fa-check-square"></i></span>Recherche dans la base
+                        terminologie via
+                        <code>SELECT</code>. L'utilisateur a l'accès aux termes scientifiques (nom scientifiques des
+                        plantes) et leurs équivalents courants sur les autres langues.
+                    </li>
+                    <li><span class="accent fa-li"><i class="fas fa-check-square"></i></span>Création de nouvelles éntrées ou
+                        modification des éntrées existantes dans la base de données via
+                        <code>CREATE</code>/<code>UPDATE</code> pour ensuite les consulter. Suppresion des termes est
+                        également disponible via (<code>DELETE</code>).
+                    </li>
+                    <li><span class="accent fa-li"><i class="fas fa-check-square"></i></span>Mini quiz pour réviser /
+                        s'entraîner sur la terminologie.</li>
                 </ul>
                 </p>
-                <p>Je vais, du coup, ajouter la possibilité de créer un compte et s'y connecter peut-être (si j'arrive).
+                <p>La base de données proposée a été créée manuellement. Il y a deux tableaux : Plants and Families. Le
+                    tableau contient le nombre des plantes vertes pour lequel nous avons renseigné le nom scientifique
+                    de l'espèce, ainsi que ses noms courants en trois langues, la famille (qui est la clé étrangère qui
+                    sert à lier ce tableau au tableau Families), l'image et le champ pour prendre les notes.
                 </p>
             </div>
     </section>
@@ -72,7 +80,7 @@
         <div class="container-fluid">
             <header class="bao-head">
                 <div>
-                    <h3>Consultation du contenu de la base terminologique</h3>
+                    <h3 id="recherche">Consultation du contenu de la base terminologique</h3>
                 </div>
             </header>
             <br />
@@ -119,6 +127,7 @@
                                 <?php
 
               require_once("config.php");
+              require_once("functions.php");
               $requete = $sql->prepare("SELECT scientific_name FROM `Plants` limit 4");
               $requete->execute();
               $lignes = $requete->fetchAll();
@@ -136,12 +145,12 @@
                 </fieldset>
                 <div class="row g-3">
                     <div class="col-md-6">
-                    <button type="submit" name="select_by_family" class="btn btn-success">Rechercher par
+                        <button type="submit" name="select_by_family" class="btn btn-success">Rechercher par
                             famille</button>
                     </div>
 
                     <div class="col-md-6">
-                            <button type="submit" name="select_by_scientific_name" class="btn btn-success">Rechercher par
+                        <button type="submit" name="select_by_scientific_name" class="btn btn-success">Rechercher par
                             name</button>
                     </div>
                 </div>
@@ -154,7 +163,7 @@
         {
           $nom = $_POST["plant_name"];
           $param_nom= '%'.$nom.'%';
-          $requete = $sql->prepare("SELECT * FROM Plants WHERE 
+          $requete = $sql->prepare("SELECT * FROM Plants INNER JOIN Families on family = family_id WHERE 
             LOWER(scientific_name) LIKE LOWER(:param_nom) OR 
             LOWER(common_name_en) LIKE LOWER(:param_nom) OR 
             LOWER(common_name_fr) LIKE LOWER(:param_nom) OR 
@@ -192,7 +201,7 @@
                   echo '<a href="CRUD/delete.php?id='. $ligne['plant_id'] .'" class="btn btn-danger">Supprimer</a>';
                 echo "</td>";
                 echo "<td>".$ligne['scientific_name']."</td>";
-                echo "<td>".$ligne['family']."</td>";
+                echo "<td>".$ligne['family_name']."</td>";
                 echo "<td>".$ligne['common_name_en']."</td>";
                 echo "<td>".$ligne['common_name_fr']."</td>";
                 echo "<td>".$ligne['common_name_ru']."</td>";
@@ -204,7 +213,7 @@
           }
         }elseif (isset($_POST['select_by_family'])) {
           $param_family = $_POST["plant_family"];
-          $requete = $sql->prepare("SELECT * FROM Plants WHERE 
+          $requete = $sql->prepare("SELECT * FROM Plants INNER JOIN Families on family = family_id WHERE 
           LOWER(family) LIKE LOWER(:param_family)");
           $requete->bindParam('param_family', $param_family);
 
@@ -239,7 +248,7 @@
                 echo '<a href="CRUD/delete.php?id='. $ligne['plant_id'] .'" class="btn btn-danger">Supprimer</a>';
               echo "</td>";
               echo "<td>".$ligne['scientific_name']."</td>";
-              echo "<td>".$ligne['family']."</td>";
+              echo "<td>".$ligne['family_name']."</td>";
               echo "<td>".$ligne['common_name_en']."</td>";
               echo "<td>".$ligne['common_name_fr']."</td>";
               echo "<td>".$ligne['common_name_ru']."</td>";
@@ -262,7 +271,7 @@
         <div class="container-fluid">
             <header class="bao-head">
                 <div>
-                    <h3>Mini Quizz</h3>
+                    <h3 id="quiz">Mini Quizz</h3>
                 </div>
             </header>
             <br />
@@ -309,7 +318,7 @@
         <div class="container-fluid">
 
             <!-- Carousel -->
-            <h3>Voici le carousel avec trois images : </h3>
+            <blockquote class="accent"><h3>“La mauvaise herbe n'est jamais qu'une plante mal aimée.”<br /><small>— <cite>Confucius.</cite></small></h3></blockquote>
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
@@ -396,7 +405,7 @@
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
-                <p>Source des photos : <a href="https://unsplash.com/@feeypflanzen">Severin Candrian (feey.ch)</a></p>
+                <p>Source des photos : <a class="accent" href="https://unsplash.com/@feeypflanzen">Severin Candrian (feey.ch)</a></p>
             </div>
 
         </div>
@@ -405,23 +414,6 @@
 
 
     <!-- Pied de page -->
-
-    <footer class="white-section" id="footer">
-        <div class="container-fluid">
-            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Plantes rendent heureux</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Plantes purifient l'air</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Plantes donnent du style</a></li>
-            </ul>
-            <a class="text-dark" href="https://www.linkedin.com/in/alexandra-ponomareva-22228710b/" target="_blank"><i
-                    class="social-icon fab fa-linkedin"></i></a>
-            <a class="text-dark" href="mailto:alex.ponomaryova@gmail.com" target="_blank"><i
-                    class="social-icon fas fa-envelope"></i></a>
-            <p>© <script>
-                document.write(new Date().getFullYear())
-                </script> Alexandra Ponomareva 🌱</p>
-        </div>
-    </footer>
-</body>
-
-</html>
+    <?php 
+    pied_de_page();
+    ?>

@@ -65,6 +65,7 @@
               <select name="plant_family" >
               <?php
                 require_once("../config.php");
+                require_once("../functions.php");
                 $requete = $sql->prepare("SELECT * FROM Families order by family_name");
                 $requete->execute();
                 $lignes = $requete->fetchAll();
@@ -125,7 +126,7 @@
             <textarea id="note" name="note" class="form-control" placeholder="Dites-nous ce que vous en pensez !"></textarea>
           </div>
         </fieldset>
-        <button type="submit" name="submit" class="btn btn-info">Confirmer</button>
+        <button type="submit" name="submit" class="btn btn-success">Confirmer</button>
       </form>
       <?php 
       if(isset($_POST['submit']))
@@ -162,13 +163,12 @@
           echo "Erreur lors de l'insertion"; 
         }
 
-
       }?>
 
 
     </div>
   </section>
 
-  </body>
-
-</html>
+  <?php
+pied_de_page();
+?>
