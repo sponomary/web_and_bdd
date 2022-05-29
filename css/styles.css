@@ -31,9 +31,8 @@ em, code, .accent {
 }
 
 .spaced {
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
-
 
 /* Sections */
 
@@ -67,32 +66,14 @@ em, code, .accent {
   font-family: "Montserrat-Light", sans-serif;
 }
 
-/* Buttons */
-
-/* Download Tables */
-.download-table a {
-  color: #146356;
-}
-
 /* Présentation Section */
+
 .presentation p {
   color: #fff;
 }
 
 .text-light {
   font-weight: bold;
-}
-
-.presentation-card {
-  width: 18rem;
-  height: 18rem;
-}
-.bao-section {
-  text-align: center;
-}
-
-.bao-section h3 {
-  color: #146356;
 }
 
 #title { 
@@ -106,13 +87,6 @@ em, code, .accent {
 }
 
 /* Function 1 Section */
-.code-snippet {
-  background-color: #F7F7F7;
-  display: inline-block;
-  margin-left: 2px;
-  width: 800px;
-  vertical-align: top;
-}
 
 .plant-image-search {
   max-width: 100%;
@@ -120,27 +94,8 @@ em, code, .accent {
   margin: 10px;
 }
 
-.rubrique {
-  color: #8f8f8f;
-}
-
-/* Function 2 Section */
-#bao2 {
-  background-color: #a3ddcb;
-}
-
-#bao2 p {
-  color: #555;
-}
-
-/* Function 3 Section */
-.function-list {
-  color: #8f8f8f;
-}
-
-/* Conclusion Section */
-
 /* Carousel Section */
+
 .plant-image {
   width: 30%;
   border-radius: 100%;
@@ -149,11 +104,6 @@ em, code, .accent {
 
 #tools {
   position: relative;
-}
-
-.feature-title {
-  font-size: 1.5rem;
-  font-weight: 700;
 }
 
 .icon {
@@ -175,6 +125,7 @@ em, code, .accent {
 }
 
 /* Button to top */
+
 #button {
   display: inline-block;
   background-color: #146356;
@@ -217,6 +168,8 @@ em, code, .accent {
     text-align: center;
   }
 }
+
+/* Quiz section */
 
 .radio-left {
   text-align: left;
