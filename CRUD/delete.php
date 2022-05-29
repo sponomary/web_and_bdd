@@ -13,7 +13,7 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
   $common_name_en=$ligne['common_name_en'];
   $common_name_fr=$ligne['common_name_fr'];
   $common_name_ru=$ligne['common_name_ru'];
-  $note=$ligne['common_name_ru'];
+  $note=$ligne['notes'];
 }
 ?> 
 
