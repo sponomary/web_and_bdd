@@ -293,8 +293,8 @@
 
                 <p>Pour résumer, nous avons construit ce site à l'aide de <a class="accent"
                         href="https://www.php.net/manual/fr/index.php">PHP</a> et des requêtes GET et POST pour
-                    récupérer les données issues des ces formulaires.
-                    Les données proviennent d'une base de données SQL créés avec <a class="accent"
+                    récupérer les données issues de ces formulaires.
+                    Les données proviennent d'une base de données SQL créée avec <a class="accent"
                         href="http://localhost:8888/phpMyAdmin5/">phpMyAdmin</a>.</p>
                 <p>La base de données proposée a été créée manuellement. Il y a deux tableaux : <code>Plants</code> and
                     <code>Families</code>. Le
@@ -303,11 +303,13 @@
                     sert à lier ce tableau au tableau <code>Families</code>), l'image et le champ pour prendre les
                     notes.
                 </p>
-                <p>L'interrogation de la base de données s'effectue grâche à quatre opérations de base CRUD.</p>
+                <p>La base de données a été exportée du phpMyAdmin en fichier SQL et se trouve dans le dossier de rendu
+                    de ce projet - il suffit juste l'importer. L'interrogation de la base de données s'effectue grâce à
+                    quatre opérations de base CRUD.</p>
                 <p>Nous avons rencontré un problème pour la validation du formulaire lors du développement du Quiz. En
                     effet, avec la technologie HTML + PHP, il n'est pas possible de valider un formulaire sans recharger
                     entièrement la page ce qui posait problème car cela affichait une autre question et d'autres
-                    réponses. Nous souhaitaions garder à l'écran la question posée, les choix possibles, la réponse
+                    réponses. Nous souhaitions garder à l'écran la question posée, les choix possibles, la réponse
                     saisie
                     par l'utilisateur mais aussi afficher le résultat. Pour cela, nous avons utilisé du Javascript et
                     Jquery
@@ -319,7 +321,7 @@
                 <p>Enfin, nous avons utilisé le framework <a class="accent"
                         href="https://getbootstrap.com/">Bootstrap</a> pour
                     rendre le site fluide, responsive et plutôt agréable à utiliser. Sur la page principale se trouve le
-                    bouton qui permet de remonter dans la page si scrollé trop bas - cette fonctionalité dinamique
+                    bouton qui permet de remonter dans la page si scrollé trop bas - cette fonctionnalité dynamique
                     utilise du JavaScript.</p>
                 </p>
             </div>
