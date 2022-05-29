@@ -27,7 +27,7 @@ em, code, .accent {
 /* Containers */
 
 .container-fluid{
-  padding: 7% 10%;
+  padding: 5% 7%;
 }
 
 .spaced {
@@ -49,7 +49,7 @@ em, code, .accent {
 
 /* Navigation Bar */
 .navbar {
-  padding: 0 0 4.5rem;
+  padding: 0 0 2.5rem;
 }
 
 .navbar-brand {
@@ -225,4 +225,10 @@ em, code, .accent {
   #title {
     text-align: center;
   }
+}
+
+
+.radio-left {
+  text-align: left;
+  display:inline;
 }
