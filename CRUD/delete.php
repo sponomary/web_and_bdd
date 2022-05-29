@@ -165,6 +165,8 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
 
     </div>
   </section>
+  
   <?php
-  pied_de_page();
+    retour();
+    pied_de_page()
   ?>

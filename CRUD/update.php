@@ -156,7 +156,7 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                             placeholder="Dites-nous ce que vous en pensez !"><?php echo $note; ?></textarea>
                     </div>
                 </fieldset>
-                <button type="submit" name="submit" class="btn btn-success">Confirmer</button>
+                <button type="submit" name="submit" class="btn btn-success">Modifier</button>
             </form>
             <?php 
       if(isset($_POST['submit']))
@@ -194,11 +194,11 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
 
 
       }
-      retour();
       ?>
         </div>
     </section>
 
-    <?php
-pied_de_page()
-?>
+  <?php
+    retour();
+    pied_de_page()
+  ?>
